@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>UserPhoneNumber</title>
+</h:head>
+<h:form>
+	<p:growl id="messages"></p:growl>
+	<p:panelGrid columns="2">
+		<p:outputLabel value="Enter User Phone NO.:"></p:outputLabel>
+		<p:inputText value="#{addUser.userPhoneNumber.userPhoneNumbersId}"></p:inputText>
+
+		<p:outputLabel value="Enter Phone NO.:"></p:outputLabel>
+		<p:inputText value="#{addUser.userPhoneNumber.phoneNumber}"></p:inputText>
+
+		<p:outputLabel value="Enter Id Card NO.:"></p:outputLabel>
+		<p:inputText value="#{addUser.userPhoneNumber.customer}"></p:inputText>
+
+		<p:outputLabel value="Enter Type :"></p:outputLabel>
+		<p:inputText value="#{addUser.userPhoneNumber.type}"></p:inputText>
+
+
+
+
+		<br />
+		<br />
+		<p:commandButton value="ADD" action="#{addNumber.addNumber}"
+			update="@form" />
+
+		<p:column headerText="Action">
+			<p:commandButton value="Show" action="show" icon="ui-icon-arrow-r"
+				ajax="false">
+			</p:commandButton>
+		</p:column>
+</h:form>
+</html>

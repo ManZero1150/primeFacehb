@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Show PhoneNumber</title>
+</h:head>
+<h:form>
+	<p:dataTable var="PhoneNumber" color="black" value="#{addNumber.phoneNumbers}">
+
+		<p:column headerText="NO">
+			<h:outputText value="#{PhoneNumber.getNo()}" />
+		</p:column>
+
+		<p:column headerText="STATUS">
+			<h:outputText value="#{PhoneNumber.getStatus()}" />
+		</p:column>
+
+		<p:column headerText="CREATE">
+			<h:outputText value="#{PhoneNumber.getCreated()}" />
+		</p:column>
+
+		<p:column headerText="UPDATE">
+			<h:outputText value="#{PhoneNumber.getUpdated()}" />
+		</p:column>
+
+		<p:column headerText="DESCRIPTION">
+			<h:outputText value="#{PhoneNumber.getDescription()}" />
+		</p:column>
+
+		<p:column headerText="Delete">
+			<p:commandButton value="Delete" action="#{addNumber.delete}"
+				update="@form">
+				<f:setPropertyActionListener value="#{PhoneNumber}"
+					target="#{addNumber.phoneNumber}" />
+			</p:commandButton>
+		</p:column>
+	
+	</p:dataTable>
+	<br />
+	<br />
+		<p:commandButton value="Back"
+		action="index"
+		icon="ui-icon-back" ajax="false" />
+	
+</h:form>
+</html>

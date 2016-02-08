@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Mobile</title>
+</h:head>
+<h:form>
+	<p:growl id="messages"></p:growl>
+	<p:panelGrid columns="2">
+		<p:outputLabel value="Enter Mobile NO:"></p:outputLabel>
+		<p:inputText value="#{addNumber.mobile.no}"></p:inputText>
+
+		<p:outputLabel value="Enter Mobile Status:"></p:outputLabel>
+		<p:inputText value="#{addNumber.mobile.status}"></p:inputText>
+
+
+		<p:outputLabel value="Enter Mobile Create:"></p:outputLabel>
+		<p:calendar value="#{addNumber.mobile.created}"></p:calendar>
+
+		<p:outputLabel value="Enter Mobile Update:"></p:outputLabel>
+		<p:calendar value="#{addNumber.mobile.updated}"></p:calendar>
+
+		<p:outputLabel value="Enter Mobile Description:"></p:outputLabel>
+		<p:inputText value="#{addNumber.mobile.description}"></p:inputText>
+	</p:panelGrid>
+	<p:commandButton value="ADD" action="#{addNumber.addNumber}"
+		update="@form" />
+
+	<p:dataTable var="Mobile" value="#{addNumber.mobiles}">
+		<p:column headerText="MBL_NO">
+			<h:outputText value="#{mobile.getNo()}" />
+		</p:column>
+
+		<!--     <p:column headerText="MBL_STATUS"> -->
+		<!--         <h:outputText value="#{Mobile.getStatus()}" /> -->
+		<!--     </p:column> -->
+
+		<!--     <p:column headerText="MBL_CREATE"> -->
+		<!--         <h:outputText value="#{Mobile.getCreated()}" /> -->
+		<!--     </p:column> -->
+
+		<!--     <p:column headerText="MBL_UPDATE"> -->
+		<!--         <h:outputText value="#{Mobile.getUpdated()}" /> -->
+		<!--     </p:column> -->
+
+		<!--      <p:column headerText="MBL_DESCRIPTION"> -->
+		<!--         <h:outputText value="#{Mobile.getDescription()}" /> -->
+		<!--     </p:column> -->
+	</p:dataTable>
+
+</h:form>
+</html>

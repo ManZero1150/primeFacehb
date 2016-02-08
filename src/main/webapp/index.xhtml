@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>PhoneNumber</title>
+</h:head>
+<h:form>
+	<p:growl id="messages"></p:growl>
+	<p:panelGrid columns="2">
+		<p:outputLabel value="Enter Mobile NO:"></p:outputLabel>
+		<p:inputText value="#{addNumber.phoneNumber.no}"></p:inputText>
+
+		<p:outputLabel value="Enter Mobile Status:"></p:outputLabel>
+		<p:selectOneMenu id="status" value="#{addNumber.phoneNumber.status}"
+			style="width:150px">
+			<p:ajax listener="#{addNumber.phoneNumber.status}" update="status" />
+			<f:selectItem itemLabel="Select Status" itemValue=""
+				noSelectionOption="true" />
+			<f:selectItem itemLabel="A" itemValue="A" noSelectionOption="true" />
+			<f:selectItem itemLabel="U" itemValue="U" noSelectionOption="true" />
+			<f:selectItems value="#{addNumber.phoneNumber.status}" />
+		</p:selectOneMenu>
+
+
+		<p:outputLabel value="Enter Mobile Create:"></p:outputLabel>
+		<p:calendar value="#{addNumber.phoneNumber.created}"></p:calendar>
+
+		<p:outputLabel value="Enter Mobile Update:"></p:outputLabel>
+		<p:calendar value="#{addNumber.phoneNumber.updated}"></p:calendar>
+
+		<p:outputLabel value="Enter Mobile Description:"></p:outputLabel>
+		<p:inputText value="#{addNumber.phoneNumber.description}"></p:inputText>
+	</p:panelGrid>
+
+	<br />
+	<br />
+	<p:commandButton value="ADD" action="#{addNumber.addNumber}"
+		update="@form" />
+
+	<p:column headerText="Action">
+		<p:commandButton value="Show" action="show" icon="ui-icon-arrow-r" ajax="false">
+		</p:commandButton>
+	</p:column>
+
+</h:form>
+</html>
